@@ -30,7 +30,7 @@ export const LoginPage = {
         $(SELECTORS.EMAIL_TXTBX).waitForDisplayed();
         $(SELECTORS.EMAIL_TXTBX).setValue('test@test.com');
         $(SELECTORS.PASSWORD_TXTBX).waitForDisplayed();
-        $(SELECTORS.PASSWORD_TXTBX).setValue('tester');
+        $(SELECTORS.PASSWORD_TXTBX).setValue('tester123');
         if($(SELECTORS.LOGIN_BTN).isDisplayed() && $(SELECTORS.LOGIN_BTN).isEnabled()){
             $(SELECTORS.LOGIN_BTN).click();
         }

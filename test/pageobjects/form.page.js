@@ -1,4 +1,5 @@
-import NavigationBar from "./navigation.page";
+import { NavigationBar } from "./navigation.page";
+
 
 const SELECTORS = {
 

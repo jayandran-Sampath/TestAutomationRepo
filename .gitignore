@@ -2,3 +2,5 @@ node_modules/
 report
 .npm
 .vscode
+logs/
+.DS_Store
