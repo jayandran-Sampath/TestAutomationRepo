@@ -9,8 +9,7 @@ const SELECTORS = {
 export const HomePage = {
     ...NavigationBar,
     isHomePageDisplayed(){
-        $(SELECTORS.HOMEPAGE_HEADER).waitForDisplayed();
-        return $(SELECTORS.HOMEPAGE_HEADER).isDisplayed();
+        return $(SELECTORS.HOMEPAGE_HEADER).waitForDisplayed();
     }
     
 };

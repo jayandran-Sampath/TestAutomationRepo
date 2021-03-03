@@ -10,8 +10,7 @@ const SELECTORS = {
 export const FormPage = {
     ...NavigationBar,
     isFormPageDisplayed(){
-        $(SELECTORS.FORMPAGE_HEADER).waitForDisplayed();
-        return $(SELECTORS.FORMPAGE_HEADER).isDisplayed();
+        return $(SELECTORS.FORMPAGE_HEADER).waitForDisplayed();
     }
     
 };

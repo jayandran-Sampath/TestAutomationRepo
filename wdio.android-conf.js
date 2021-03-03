@@ -21,7 +21,8 @@ exports.config = {
             'app': join(process.cwd(), './apps/Android-NativeDemoApp-0.2.1.apk'),
             'noReset': true,
             'newCommandTimeout': 240,
-            'appWaitDuration': 30000
+            'appWaitDuration': 30000,
+             excludeDriverLogs: ['*']
         },
     ],
     logLevel: 'info',
@@ -49,6 +50,5 @@ exports.config = {
         global.expect = chai.expect;
         chai.should();
     },
-    //outputDir: './logs',
-    //excludeDriverLogs: ['bugreport', 'server','logcat'],
+    outputDir: './logs'
 }

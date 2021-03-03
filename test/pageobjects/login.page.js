@@ -22,8 +22,7 @@ export const LoginPage = {
     ...NavigationBar,
 
     isLoginPageDisplayed(){
-        $(SELECTORS.LOGINPAGE_HEADER).waitForDisplayed();
-        return $(SELECTORS.LOGINPAGE_HEADER).isDisplayed();
+        return $(SELECTORS.LOGINPAGE_HEADER).waitForDisplayed();
     },
 
     performLogin(){
