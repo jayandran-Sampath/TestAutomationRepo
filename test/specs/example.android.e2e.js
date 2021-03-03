@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+import { LoginPage } from '../pageobjects/login.page';
 import { NavigationBar } from './../pageobjects/navigation.page'
 
 describe('User able to', () => {
@@ -8,7 +10,15 @@ describe('User able to', () => {
     });
 
     it('login', () => {
-        expect(NavigationBar.navigateToLoginPage().performLogin()).to.be.true;
+        NavigationBar.navigateToLoginPage().performLogin();
+        expect(LoginPage.isLoginSuccess()).to.be.true;
+        expect(LoginPage.clickOKButton()).to.be.true;
+    });
+
+    it('Signup', () => {
+        NavigationBar.navigateToLoginPage().clickSignUpTab().performSignUp();
+        expect(LoginPage.isSignUpSuccess()).to.be.true;
+        expect(LoginPage.clickOKOnSignUPSuccessPopup()).to.be.true;
     });
 });
 

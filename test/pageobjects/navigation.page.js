@@ -1,6 +1,6 @@
-const { FormPage } = require("./form.page");
-const { HomePage } = require("./home.page");
-const { LoginPage } = require("./login.page");
+import { FormPage } from "./form.page";
+import { HomePage } from "./home.page";
+import { LoginPage } from "./login.page";
 
 const SELECTORS = {
     NAVIGATIONBAR_LOGIN_BTN : '~Login',

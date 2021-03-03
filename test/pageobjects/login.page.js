@@ -13,9 +13,21 @@ const SELECTORS = {
 
     REPEAT_PASSWORD_TXTBX : '~input-repeat-password',
 
-    SIGNUP_BTN : '~button-SIGN UP'
+    SIGNUP_BTN : '~button-SIGN UP',
 
+    LOGIN_SUCCESS_MSG: 'android=new UiSelector().text("You are logged in!")',
 
+    LOGIN_SUCCESS_OK_BTN: 'android=new UiSelector().text("OK")',
+
+    SIGNUP_EMAIL_TXTBX: '~input-email',
+
+    SIGNUP_EMAIL_TXTBX: '~input-password',
+
+    SIGNUP_EMAIL_TXTBX: '~input-repeat-password',
+
+    SIGNUP_SUCCESS_MSG: 'android=new UiSelector().text("You successfully signed up!")',
+
+    SIGNUP_SUCCESS_OK_BTN: 'android=new UiSelector().text("OK")'
 };
 
 export const LoginPage = {
@@ -28,12 +40,42 @@ export const LoginPage = {
     performLogin(){
         $(SELECTORS.EMAIL_TXTBX).waitForDisplayed();
         $(SELECTORS.EMAIL_TXTBX).setValue('test@test.com');
-        $(SELECTORS.PASSWORD_TXTBX).waitForDisplayed();
         $(SELECTORS.PASSWORD_TXTBX).setValue('tester123');
-        if($(SELECTORS.LOGIN_BTN).isDisplayed() && $(SELECTORS.LOGIN_BTN).isEnabled()){
-            $(SELECTORS.LOGIN_BTN).click();
-        }
+        $(SELECTORS.LOGIN_BTN).click();
+        return this;
+    },
+
+    isLoginSuccess(){
+        return $(SELECTORS.LOGIN_SUCCESS_MSG).waitForDisplayed();
+    },
+
+    clickOKButton(){
+        $(SELECTORS.LOGIN_SUCCESS_OK_BTN).click();
+        return true;
+    },
+
+    clickSignUpTab(){
+        $(SELECTORS.SIGNUP_TAB).waitForDisplayed();
+        $(SELECTORS.SIGNUP_TAB).click();
+        return this;
+    },
+
+    performSignUp(){
+        $(SELECTORS.SIGNUP_EMAIL_TXTBX).waitForDisplayed();
+        $(SELECTORS.SIGNUP_EMAIL_TXTBX).setValue('test@test.com');
+        $(SELECTORS.PASSWORD_TXTBX).setValue('tester123');
+        $(SELECTORS.REPEAT_PASSWORD_TXTBX).setValue('tester123');
+        $(SELECTORS.SIGNUP_BTN).click();
+        return this;
+    },
+
+    isSignUpSuccess(){
+        return $(SELECTORS.SIGNUP_SUCCESS_MSG).waitForDisplayed();
+    },
+
+    clickOKOnSignUPSuccessPopup(){
+        $(SELECTORS.SIGNUP_SUCCESS_OK_BTN).click();
         return true;
     }
-    
+
 };
