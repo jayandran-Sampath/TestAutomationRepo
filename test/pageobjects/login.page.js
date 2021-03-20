@@ -34,22 +34,39 @@ export const LoginPage = {
     ...NavigationBar,
 
     isLoginPageDisplayed(){
-        return $(SELECTORS.LOGINPAGE_HEADER).waitForDisplayed();
+        $(SELECTORS.LOGINPAGE_HEADER).waitForDisplayed()
+        return $(SELECTORS.LOGINPAGE_HEADER).isDisplayed();
     },
 
     performLogin(){
-        $(SELECTORS.EMAIL_TXTBX).waitForDisplayed();
-        $(SELECTORS.EMAIL_TXTBX).setValue('test@test.com');
-        $(SELECTORS.PASSWORD_TXTBX).setValue('tester123');
-        $(SELECTORS.LOGIN_BTN).click();
+        this.enterEmailID('test@test.com');
+        this.enterPassword('tester123');
+        this.clickLogin();
         return this;
     },
 
+    enterEmailID(emailID){
+        $(SELECTORS.EMAIL_TXTBX).waitForDisplayed();
+        $(SELECTORS.EMAIL_TXTBX).setValue(emailID);
+    },
+
+    enterPassword(password){
+        $(SELECTORS.PASSWORD_TXTBX).waitForDisplayed();
+        $(SELECTORS.PASSWORD_TXTBX).setValue(password);
+    },
+
+    clickLogin(){
+        $(SELECTORS.LOGIN_BTN).waitForDisplayed();
+        $(SELECTORS.LOGIN_BTN).click();
+    },
+
     isLoginSuccess(){
-        return $(SELECTORS.LOGIN_SUCCESS_MSG).waitForDisplayed();
+        $(SELECTORS.LOGIN_SUCCESS_MSG).waitForDisplayed();
+        return $(SELECTORS.LOGIN_SUCCESS_MSG).isDisplayed();
     },
 
     clickOKButton(){
+        $(SELECTORS.LOGIN_SUCCESS_OK_BTN).waitForDisplayed();
         $(SELECTORS.LOGIN_SUCCESS_OK_BTN).click();
         return true;
     },
@@ -63,17 +80,21 @@ export const LoginPage = {
     performSignUp(){
         $(SELECTORS.SIGNUP_EMAIL_TXTBX).waitForDisplayed();
         $(SELECTORS.SIGNUP_EMAIL_TXTBX).setValue('test@test.com');
+        $(SELECTORS.PASSWORD_TXTBX).waitForDisplayed();
         $(SELECTORS.PASSWORD_TXTBX).setValue('tester123');
         $(SELECTORS.REPEAT_PASSWORD_TXTBX).setValue('tester123');
+        $(SELECTORS.SIGNUP_BTN).waitForDisplayed();
         $(SELECTORS.SIGNUP_BTN).click();
         return this;
     },
 
     isSignUpSuccess(){
-        return $(SELECTORS.SIGNUP_SUCCESS_MSG).waitForDisplayed();
+        $(SELECTORS.SIGNUP_SUCCESS_MSG).waitForDisplayed();
+        return $(SELECTORS.SIGNUP_SUCCESS_MSG).isDisplayed();
     },
 
     clickOKOnSignUPSuccessPopup(){
+        $(SELECTORS.SIGNUP_SUCCESS_OK_BTN).waitForDisplayed();
         $(SELECTORS.SIGNUP_SUCCESS_OK_BTN).click();
         return true;
     }
