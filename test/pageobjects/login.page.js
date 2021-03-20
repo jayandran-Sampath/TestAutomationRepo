@@ -39,8 +39,8 @@ export const LoginPage = {
 
     performLogin(){
         $(SELECTORS.EMAIL_TXTBX).waitForDisplayed();
-        $(SELECTORS.EMAIL_TXTBX).setValue('test@test.com');
-        $(SELECTORS.PASSWORD_TXTBX).setValue('tester123');
+        $(SELECTORS.EMAIL_TXTBX).addValue('test@test.com');
+        $(SELECTORS.PASSWORD_TXTBX).addValue('tester123');
         $(SELECTORS.LOGIN_BTN).click();
         return this;
     },
@@ -64,7 +64,7 @@ export const LoginPage = {
         $(SELECTORS.SIGNUP_EMAIL_TXTBX).waitForDisplayed();
         $(SELECTORS.SIGNUP_EMAIL_TXTBX).setValue('test@test.com');
         $(SELECTORS.PASSWORD_TXTBX).setValue('tester123');
-        $(SELECTORS.REPEAT_PASSWORD_TXTBX).setValue('tester123');
+        $(SELECTORS.REPEAT_PASSWORD_TXTBX).addValue('tester123');
         $(SELECTORS.SIGNUP_BTN).click();
         return this;
     },
